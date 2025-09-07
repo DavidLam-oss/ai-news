@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 AI早报API服务
-提供RESTful API接口供飞书多维表格和微信助手调用
+提供RESTful API接口供飞书多维表格调用
 """
 
 import asyncio
@@ -53,11 +53,7 @@ class ProcessRequest(BaseModel):
     articles: List[Dict[str, Any]]
     enhancement_type: Optional[str] = "summary"
 
-class WechatSendRequest(BaseModel):
-    """微信发送请求模型"""
-    content: str
-    target_type: str  # "group" or "moment"
-    target_id: Optional[str] = None
+ 
 
 class FeishuRecordRequest(BaseModel):
     """飞书记录请求模型"""
@@ -206,31 +202,7 @@ async def create_feishu_record(request: FeishuRecordRequest):
         logger.error(f"创建飞书记录失败: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/api/wechat/send")
-async def send_to_wechat(request: WechatSendRequest):
-    """发送到微信"""
-    try:
-        if not crawler_instance:
-            raise HTTPException(status_code=500, detail="爬虫服务未初始化")
-        
-        # 准备报告数据
-        report = {
-            'date': datetime.now().strftime('%Y-%m-%d'),
-            'summary': request.content,
-            'created_at': datetime.now().isoformat()
-        }
-        
-        # 发送到微信
-        await crawler_instance.send_to_wechat(report)
-        
-        return {
-            "success": True,
-            "message": "消息已发送到微信"
-        }
-        
-    except Exception as e:
-        logger.error(f"发送到微信失败: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+ 
 
 @app.get("/api/sources")
 async def get_news_sources():

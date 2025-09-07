@@ -70,20 +70,7 @@ async def daily_crawl_task():
         except Exception as e:
             print(f"⚠️ 飞书存储失败: {e}")
         
-        # 5. 发送到微信（如果配置了）
-        print("\n💬 发送到微信...")
-        try:
-            report = {
-                'date': datetime.now().strftime('%Y-%m-%d'),
-                'summary': processed_result['summary'],
-                'created_at': datetime.now().isoformat()
-            }
-            
-            await crawler.send_to_wechat(report)
-            print("✅ 微信推送成功！")
-            
-        except Exception as e:
-            print(f"⚠️ 微信推送失败: {e}")
+        # 5. 微信发送功能已下线（风险规避）
         
         print(f"\n🎉 每日爬虫任务完成 - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         

@@ -45,24 +45,8 @@ FEISHU_APP_SECRET=your_app_secret
 FEISHU_TABLE_TOKEN=your_table_token
 ```
 
-### 2. 💬 配置微信助手
-
-#### 2.1 获取微信API凭证
-根据你的需求选择：
-- **企业微信** - 适合企业内部使用
-- **微信公众号** - 适合公开推送
-- **个人号机器人** - 适合个人使用
-
-#### 2.2 配置环境变量
-```bash
-# 使用配置脚本
-python setup_api_keys.py
-
-# 或手动编辑 .env 文件
-WECHAT_APP_ID=your_wechat_app_id
-WECHAT_APP_SECRET=your_wechat_app_secret
-WECHAT_ACCESS_TOKEN=your_access_token
-```
+### 2. 💬 配置说明（更新）
+为规避账号风险，已下线所有与微信相关的功能与文档；请仅配置飞书相关内容。
 
 ### 3. 🧪 测试配置
 
@@ -72,11 +56,7 @@ WECHAT_ACCESS_TOKEN=your_access_token
 python test_full_workflow.py
 ```
 
-#### 3.2 测试微信推送
-```bash
-# 测试微信API连接
-curl -X POST http://localhost:8000/api/wechat/test
-```
+ 
 
 ### 4. 🚀 启动定时任务
 
@@ -121,7 +101,7 @@ pm2 logs ai-news-scheduler
 1. **爬虫超时** - 检查网络连接，增加超时时间
 2. **API调用失败** - 检查API密钥配置
 3. **飞书存储失败** - 检查表格字段名称和类型
-4. **微信推送失败** - 检查Access Token是否有效
+ 
 
 ### 调试命令
 ```bash
@@ -142,12 +122,12 @@ python -c "from config.settings import settings; print(settings.DEEPSEEK_API_KEY
 - [ ] 爬虫能成功爬取新闻
 - [ ] AI能生成早报摘要和趋势分析
 - [ ] 飞书能自动存储早报数据
-- [ ] 微信能自动推送早报
+ 
 - [ ] 定时任务能每天自动执行
 - [ ] 系统能稳定运行7天以上
 
 ## 🚀 开始行动
 
-现在就开始配置飞书和微信API吧！如果遇到任何问题，随时告诉我，我会帮你解决。
+现在就开始配置飞书吧！如果遇到任何问题，随时告诉我，我会帮你解决。
 
 记住：**配置外部服务是最后一步，你的AI早报系统核心功能已经完全可用了！** 🎉

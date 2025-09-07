@@ -78,22 +78,7 @@ async def test_full_workflow():
         except Exception as e:
             print(f"⚠️ 飞书存储测试失败: {e}")
         
-        # 5. 测试微信推送（如果配置了）
-        print("\n💬 5. 测试微信推送...")
-        try:
-            # 准备报告数据
-            report = {
-                'date': datetime.now().strftime('%Y-%m-%d'),
-                'summary': processed_result['summary'],
-                'created_at': datetime.now().isoformat()
-            }
-            
-            # 尝试发送到微信
-            await crawler.send_to_wechat(report)
-            print("✅ 微信推送成功！")
-            
-        except Exception as e:
-            print(f"⚠️ 微信推送测试失败: {e}")
+        # 5. 微信发送功能已下线（风险规避）
         
         # 6. 生成测试报告
         print("\n📋 6. 测试报告")
@@ -102,15 +87,13 @@ async def test_full_workflow():
         print(f"✅ AI处理功能: 正常")
         print(f"✅ 早报生成: 正常")
         print(f"⚠️ 飞书存储: {'正常' if 'success' in locals() and success else '需要配置'}")
-        print(f"⚠️ 微信推送: {'正常' if 'report' in locals() else '需要配置'}")
+        
         
         print("\n🎯 下一步建议:")
         if 'success' not in locals() or not success:
             print("1. 配置飞书多维表格")
-        if 'report' not in locals():
-            print("2. 配置微信助手")
-        print("3. 设置定时任务")
-        print("4. 部署到生产环境")
+        print("2. 设置定时任务")
+        print("3. 部署到生产环境")
         
     except Exception as e:
         print(f"❌ 测试失败: {e}")

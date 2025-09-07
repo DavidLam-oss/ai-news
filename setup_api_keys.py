@@ -49,19 +49,7 @@ def setup_api_keys():
             content = content.replace("your_feishu_app_secret", feishu_app_secret)
             print("✅ 飞书App Secret已配置")
     
-    # 微信配置
-    current_wechat_app_id = "your_wechat_app_id"
-    if current_wechat_app_id in content:
-        print("\n💬 微信配置 (可选)：")
-        wechat_app_id = input("请输入微信App ID (或按回车跳过): ").strip()
-        if wechat_app_id:
-            content = content.replace(current_wechat_app_id, wechat_app_id)
-            print("✅ 微信App ID已配置")
-        
-        wechat_app_secret = input("请输入微信App Secret (或按回车跳过): ").strip()
-        if wechat_app_secret:
-            content = content.replace("your_wechat_app_secret", wechat_app_secret)
-            print("✅ 微信App Secret已配置")
+    # 微信相关功能已下线（风险规避）
     
     # 保存配置
     with open(env_file, 'w', encoding='utf-8') as f:

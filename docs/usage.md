@@ -52,12 +52,7 @@ FEISHU_APP_SECRET=your-feishu-app-secret
 FEISHU_TABLE_TOKEN=your-table-token
 ```
 
-#### 微信配置
-```bash
-# 微信应用配置
-WECHAT_APP_ID=your-wechat-app-id
-WECHAT_APP_SECRET=your-wechat-app-secret
-```
+ 
 
 ### 3. 启动服务
 
@@ -90,7 +85,7 @@ docker run -d -p 8000:8000 ai-news
 docker-compose up -d
 ```
 
-## 功能使用
+## 功能使用（更新）
 
 ### 1. API接口
 
@@ -122,13 +117,7 @@ curl -X POST "http://localhost:8000/api/crawl/run"
 #### 自动化配置
 参考 `feishu/table_config.md` 文件进行详细配置。
 
-### 3. 微信集成
-
-#### 群聊发送
-系统会自动将早报发送到配置的微信群聊。
-
-#### 朋友圈发布
-支持自动发布早报到朋友圈。
+ 
 
 ## 配置说明
 
@@ -237,10 +226,7 @@ redis-cli info
 - 检查访问令牌是否有效
 - 确认表格分享权限
 
-#### 微信发送失败
-- 检查微信应用配置
-- 验证群聊机器人设置
-- 确认消息格式正确
+ 
 
 ### 2. 调试技巧
 
@@ -317,7 +303,7 @@ class CustomContentProcessor(ContentProcessor):
         pass
 ```
 
-### 3. 集成其他平台
+### 3. 集成其他平台（扩展）
 
 ```python
 # 创建新的客户端类

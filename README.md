@@ -1,11 +1,11 @@
 # AI早报系统
 
-基于飞书多维表格的智能AI早报系统，每天自动抓取全网AI科技信息，通过AI处理生成精美早报，并自动发送到微信群聊。
+基于飞书多维表格的智能AI早报系统，每天自动抓取全网AI科技信息，通过AI处理生成精美早报。
 
 ## 系统架构
 
 ```
-AI爬虫服务 → 飞书多维表格 → AI内容处理 → 微信助手 → 群聊/朋友圈
+AI爬虫服务 → 飞书多维表格 → AI内容处理
 ```
 
 ## 功能特性
@@ -13,7 +13,7 @@ AI爬虫服务 → 飞书多维表格 → AI内容处理 → 微信助手 → �
 - 🤖 **智能爬虫**: 基于crawl4ai，自动抓取全网AI科技资讯
 - 📊 **多维表格**: 飞书多维表格存储和管理早报数据
 - 🎨 **AI处理**: 使用DeepSeek优化内容，生成图片提示词
-- 📱 **自动推送**: 自动发送到微信群聊和朋友圈
+ 
 - ⏰ **定时任务**: 每天自动执行，无需人工干预
 
 ## 项目结构
@@ -22,7 +22,7 @@ AI爬虫服务 → 飞书多维表格 → AI内容处理 → 微信助手 → �
 ai-news/
 ├── crawler/          # AI爬虫服务
 ├── feishu/          # 飞书多维表格配置
-├── wechat/          # 微信助手集成
+ 
 ├── config/          # 配置文件
 ├── docs/            # 文档
 └── README.md        # 项目说明
@@ -35,7 +35,7 @@ ai-news/
 - Python 3.8+
 - Node.js 16+
 - 飞书开发者账号
-- 微信开发者账号
+ 
 
 ### 2. 安装依赖
 
@@ -142,7 +142,6 @@ python api/main.py
 2. 设置定时触发（每天上午8点）
 3. 添加HTTP请求动作，调用爬虫API
 4. 添加AI处理动作，优化内容
-5. 添加微信发送动作，推送到群聊
 
 ## API接口
 
@@ -152,10 +151,7 @@ python api/main.py
 - `POST /api/process` - 处理早报内容
 - `GET /api/health` - 健康检查
 
-### 微信助手
-
-- `POST /api/wechat/send` - 发送消息到群聊
-- `POST /api/wechat/moment` - 发布朋友圈
+ 
 
 ## 部署说明
 
@@ -190,7 +186,7 @@ pm2 start ecosystem.config.js
 - [x] 新闻源管理 - 支持8个主流AI科技媒体
 - [x] AI内容处理 - 使用OpenAI/DeepSeek优化内容
 - [x] 飞书多维表格集成 - 完整的数据存储和管理
-- [x] 微信助手集成 - 支持群聊和朋友圈推送
+ 
 - [x] RESTful API服务 - 完整的API接口
 - [x] 自动化工作流 - 定时任务和流程自动化
 - [x] Docker容器化 - 支持Docker部署
@@ -206,10 +202,7 @@ cd ai-news
 # 2. 激活虚拟环境
 source venv/bin/activate
 
-# 3. 快速本地测试（推荐）
-./quick_local_test.sh
-
-# 4. 运行完整工作流程演示
+# 3. 运行完整工作流程演示
 python3 demo_full_workflow.py
 
 # 5. 运行简化爬虫测试
@@ -225,25 +218,7 @@ python3 test_feishu_config.py
 ./start.sh
 ```
 
-## 本地测试指南
-
-### iPad协议微信助手本地测试
-
-无需购买外部服务，即可在本地测试所有微信功能：
-
-```bash
-# 快速测试（一键完成）
-./quick_local_test.sh
-
-# 手动测试步骤
-# 1. 启动模拟服务
-python3 simple_mock_service.py
-
-# 2. 运行测试脚本
-python3 curl_based_test.py
-```
-
-详细说明请查看：[LOCAL_TEST_GUIDE.md](./LOCAL_TEST_GUIDE.md)
+注：为规避账号风险，已下线所有与微信相关的功能与文档。本项目专注于爬取、AI处理与飞书多维表格存储/自动化。
 
 ## 🎉 系统测试状态
 

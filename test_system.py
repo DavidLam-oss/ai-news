@@ -120,34 +120,9 @@ async def test_feishu_client():
         return False
 
 async def test_wechat_client():
-    """测试微信客户端"""
-    print("\n💬 测试微信客户端...")
-    
-    try:
-        if not settings.WECHAT_APP_ID or not settings.WECHAT_APP_SECRET:
-            print("⚠️  未配置微信应用凭证，跳过微信测试")
-            return True
-        
-        from wechat.client import WechatClient
-        
-        client = WechatClient()
-        
-        # 测试获取访问令牌
-        print("🔑 测试获取微信访问令牌...")
-        token = await client.get_access_token()
-        
-        if token:
-            print("✅ 微信访问令牌获取成功")
-        else:
-            print("❌ 微信访问令牌获取失败")
-            return False
-        
-        await client.close()
-        return True
-        
-    except Exception as e:
-        print(f"❌ 微信客户端测试失败: {e}")
-        return False
+    """测试微信客户端（已下线）"""
+    print("\n💬 微信相关测试已下线（风险规避），跳过。")
+    return True
 
 async def test_api_server():
     """测试API服务器"""
@@ -182,7 +157,7 @@ async def main():
         ("新闻源配置", test_news_sources),
         ("内容处理器", test_content_processor),
         ("飞书客户端", test_feishu_client),
-        ("微信客户端", test_wechat_client),
+        ("微信客户端(已下线)", test_wechat_client),
         ("API服务器", test_api_server)
     ]
     

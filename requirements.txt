@@ -25,9 +25,7 @@ python-multipart==0.0.6
 feishu-python-sdk==0.1.4
 httpx==0.25.2
 
-# 微信集成
-wechatpy==1.8.18
-qrcode==7.4.2
+ 
 
 # 工具库
 python-dotenv==1.0.0

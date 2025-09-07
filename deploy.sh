@@ -113,7 +113,7 @@ setup_environment() {
             echo "⚠️  请编辑 .env 文件，填入必要的配置信息："
             echo "   - OPENAI_API_KEY"
             echo "   - FEISHU_APP_ID 和 FEISHU_APP_SECRET"
-            echo "   - WECHAT_APP_ID 和 WECHAT_APP_SECRET"
+            echo "   - （微信相关功能已下线）"
         else
             echo "❌ 未找到环境变量示例文件"
             exit 1
