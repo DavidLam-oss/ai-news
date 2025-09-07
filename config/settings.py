@@ -32,6 +32,11 @@ class Settings(BaseSettings):
     WECHAT_APP_SECRET: str = Field(default="", env="WECHAT_APP_SECRET")
     WECHAT_ACCESS_TOKEN: str = Field(default="", env="WECHAT_ACCESS_TOKEN")
     
+    # iPad协议微信助手配置
+    IPAD_WEBHOOK_URL: str = Field(default="", env="IPAD_WEBHOOK_URL")
+    DEFAULT_GROUP_NAME: str = Field(default="AI科技早报群", env="DEFAULT_GROUP_NAME")
+    TARGET_GROUPS: str = Field(default="", env="TARGET_GROUPS")  # 逗号分隔的群名称
+    
     # 爬虫配置
     CRAWL_INTERVAL: int = Field(default=3600, env="CRAWL_INTERVAL")
     MAX_ARTICLES: int = Field(default=50, env="MAX_ARTICLES")

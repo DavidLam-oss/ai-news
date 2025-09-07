@@ -206,21 +206,44 @@ cd ai-news
 # 2. 激活虚拟环境
 source venv/bin/activate
 
-# 3. 运行完整工作流程演示
+# 3. 快速本地测试（推荐）
+./quick_local_test.sh
+
+# 4. 运行完整工作流程演示
 python3 demo_full_workflow.py
 
-# 4. 运行简化爬虫测试
+# 5. 运行简化爬虫测试
 python3 simple_crawler_test.py
 
-# 5. 测试飞书连接
+# 6. 测试飞书连接
 python3 test_feishu_config.py
 
-# 6. 部署系统
+# 7. 部署系统
 ./deploy.sh
 
-# 7. 启动服务
+# 8. 启动服务
 ./start.sh
 ```
+
+## 本地测试指南
+
+### iPad协议微信助手本地测试
+
+无需购买外部服务，即可在本地测试所有微信功能：
+
+```bash
+# 快速测试（一键完成）
+./quick_local_test.sh
+
+# 手动测试步骤
+# 1. 启动模拟服务
+python3 simple_mock_service.py
+
+# 2. 运行测试脚本
+python3 curl_based_test.py
+```
+
+详细说明请查看：[LOCAL_TEST_GUIDE.md](./LOCAL_TEST_GUIDE.md)
 
 ## 🎉 系统测试状态
 
