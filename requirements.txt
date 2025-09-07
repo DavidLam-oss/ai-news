@@ -1,5 +1,5 @@
 # AI爬虫相关
-crawl4ai==0.2.77
+crawl4ai==0.7.4
 playwright==1.40.0
 beautifulsoup4==4.12.2
 requests==2.31.0
@@ -11,9 +11,9 @@ anthropic==0.7.8
 deepseek-ai==0.0.1
 
 # 数据处理
-pandas==2.1.4
-numpy==1.24.3
-python-dateutil==2.8.2
+pandas>=2.2.0
+numpy>=1.26.0
+python-dateutil>=2.8.2
 
 # API服务
 fastapi==0.104.1
@@ -22,7 +22,7 @@ pydantic==2.5.0
 python-multipart==0.0.6
 
 # 飞书集成
-feishu-python-sdk==1.0.0
+feishu-python-sdk==0.1.4
 httpx==0.25.2
 
 # 微信集成

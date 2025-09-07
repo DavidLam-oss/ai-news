@@ -76,7 +76,8 @@ async def startup_event():
         crawler_instance = AINewsCrawler()
         await crawler_instance.init_crawler()
         
-        content_processor = ContentProcessor()
+        # 使用爬虫实例中的内容处理器
+        content_processor = crawler_instance.content_processor
         news_sources = NewsSources()
         
         logger.info("API服务启动成功")
@@ -153,6 +154,9 @@ async def get_news(request: NewsRequest = Depends()):
 async def process_content(request: ProcessRequest):
     """处理早报内容"""
     try:
+        logger.info(f"content_processor: {content_processor}")
+        logger.info(f"content_processor type: {type(content_processor)}")
+        
         if not content_processor:
             raise HTTPException(status_code=500, detail="内容处理器未初始化")
         
@@ -166,6 +170,8 @@ async def process_content(request: ProcessRequest):
         
     except Exception as e:
         logger.error(f"处理内容失败: {e}")
+        import traceback
+        logger.error(traceback.format_exc())
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/feishu/record")

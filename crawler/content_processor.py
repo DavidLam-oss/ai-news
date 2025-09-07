@@ -19,9 +19,23 @@ class ContentProcessor:
     
     def __init__(self):
         """初始化内容处理器"""
-        self.openai_client = openai.AsyncOpenAI(
-            api_key=settings.OPENAI_API_KEY
-        )
+        # 优先使用DeepSeek，如果没有配置则使用OpenAI
+        if settings.DEEPSEEK_API_KEY:
+            self.ai_client = openai.AsyncOpenAI(
+                api_key=settings.DEEPSEEK_API_KEY,
+                base_url="https://ark.cn-beijing.volces.com/api/v3"
+            )
+            self.ai_model = "ep-20250823010411-p5fnv"  # 火山方舟的模型ID
+            logger.info("使用火山方舟DeepSeek API进行内容处理")
+        elif settings.OPENAI_API_KEY:
+            self.ai_client = openai.AsyncOpenAI(
+                api_key=settings.OPENAI_API_KEY
+            )
+            self.ai_model = "gpt-3.5-turbo"
+            logger.info("使用OpenAI API进行内容处理")
+        else:
+            self.ai_client = None
+            logger.warning("未配置AI API密钥，将使用模拟数据")
     
     async def process_articles(self, articles: List[Dict[str, Any]]) -> Dict[str, Any]:
         """处理文章列表，生成早报内容"""
@@ -71,10 +85,13 @@ class ContentProcessor:
     async def _generate_summary(self, articles_text: str) -> str:
         """生成早报摘要"""
         try:
+            if not self.ai_client:
+                return self._get_mock_summary()
+                
             prompt = AI_PROMPTS['summary'].format(articles=articles_text)
             
-            response = await self.openai_client.chat.completions.create(
-                model="gpt-3.5-turbo",
+            response = await self.ai_client.chat.completions.create(
+                model=self.ai_model,
                 messages=[
                     {"role": "system", "content": "你是一个专业的AI科技早报编辑，擅长将复杂的科技新闻整理成简洁易懂的早报。"},
                     {"role": "user", "content": prompt}
@@ -94,10 +111,13 @@ class ContentProcessor:
     async def _analyze_trends(self, articles_text: str) -> List[str]:
         """分析AI发展趋势"""
         try:
+            if not self.ai_client:
+                return self._get_mock_trends()
+                
             prompt = AI_PROMPTS['trends'].format(articles=articles_text)
             
-            response = await self.openai_client.chat.completions.create(
-                model="gpt-3.5-turbo",
+            response = await self.ai_client.chat.completions.create(
+                model=self.ai_model,
                 messages=[
                     {"role": "system", "content": "你是一个AI行业分析师，擅长识别和分析AI技术的发展趋势。"},
                     {"role": "user", "content": prompt}
@@ -120,10 +140,13 @@ class ContentProcessor:
     async def _generate_image_prompts(self, articles_text: str) -> List[str]:
         """生成图片提示词"""
         try:
+            if not self.ai_client:
+                return self._get_mock_image_prompts()
+                
             prompt = AI_PROMPTS['image_prompts'].format(articles=articles_text)
             
-            response = await self.openai_client.chat.completions.create(
-                model="gpt-3.5-turbo",
+            response = await self.ai_client.chat.completions.create(
+                model=self.ai_model,
                 messages=[
                     {"role": "system", "content": "你是一个专业的视觉设计师，擅长为AI科技内容创作视觉提示词。"},
                     {"role": "user", "content": prompt}
@@ -151,6 +174,32 @@ class ContentProcessor:
                 "人工智能与人类协作，科技感十足",
                 "数字化世界，AI驱动的未来生活"
             ]
+    
+    def _get_mock_summary(self) -> str:
+        """获取模拟摘要数据"""
+        return """今日AI科技早报：
+
+1. 大语言模型技术持续突破，性能不断提升
+2. AI在各行业的应用场景不断扩展
+3. 开源AI生态快速发展，推动技术创新
+
+AI技术正在改变我们的生活方式，未来充满无限可能。"""
+    
+    def _get_mock_trends(self) -> List[str]:
+        """获取模拟趋势数据"""
+        return [
+            "大语言模型性能持续提升，成本不断降低",
+            "多模态AI成为发展重点，图像、文本、音频融合",
+            "开源AI模型快速发展，推动行业生态建设"
+        ]
+    
+    def _get_mock_image_prompts(self) -> List[str]:
+        """获取模拟图片提示词数据"""
+        return [
+            "AI科技未来场景，简洁现代设计风格",
+            "人工智能与人类协作，科技感十足",
+            "数字化世界，AI驱动的未来生活"
+        ]
     
     async def enhance_content(self, content: str, enhancement_type: str = "summary") -> str:
         """增强内容质量"""

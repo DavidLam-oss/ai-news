@@ -35,7 +35,7 @@ class FeishuClient:
     async def get_access_token(self) -> str:
         """获取访问令牌"""
         try:
-            url = f"{self.base_url}/auth/v3/tenant_access_token/internal"
+            url = f"{self.base_url}/auth/v3/app_access_token/internal"
             data = {
                 "app_id": self.app_id,
                 "app_secret": self.app_secret
@@ -46,7 +46,7 @@ class FeishuClient:
             
             result = response.json()
             if result.get("code") == 0:
-                self.access_token = result["tenant_access_token"]
+                self.access_token = result.get("app_access_token") or result.get("tenant_access_token")
                 logger.info("飞书访问令牌获取成功")
                 return self.access_token
             else:
@@ -66,7 +66,7 @@ class FeishuClient:
         try:
             await self.ensure_access_token()
             
-            url = f"{self.base_url}/bitable/v1/apps/{self.table_token}/tables/tblDefault/records"
+            url = f"{self.base_url}/bitable/v1/apps/{self.table_token}/tables/tblsXDf7QkK9jLzI/records"
             
             # 准备请求数据
             fields = {}
@@ -102,7 +102,7 @@ class FeishuClient:
         try:
             await self.ensure_access_token()
             
-            url = f"{self.base_url}/bitable/v1/apps/{self.table_token}/tables/tblDefault/records/{record_id}"
+            url = f"{self.base_url}/bitable/v1/apps/{self.table_token}/tables/tblsXDf7QkK9jLzI/records/{record_id}"
             
             # 准备请求数据
             fields = {}
@@ -138,7 +138,7 @@ class FeishuClient:
         try:
             await self.ensure_access_token()
             
-            url = f"{self.base_url}/bitable/v1/apps/{self.table_token}/tables/tblDefault/records"
+            url = f"{self.base_url}/bitable/v1/apps/{self.table_token}/tables/tblsXDf7QkK9jLzI/records"
             params = {
                 "page_size": page_size
             }
@@ -171,7 +171,7 @@ class FeishuClient:
         try:
             await self.ensure_access_token()
             
-            url = f"{self.base_url}/bitable/v1/apps/{self.table_token}/tables/tblDefault/records/{record_id}"
+            url = f"{self.base_url}/bitable/v1/apps/{self.table_token}/tables/tblsXDf7QkK9jLzI/records/{record_id}"
             
             headers = {
                 "Authorization": f"Bearer {self.access_token}"
@@ -197,11 +197,12 @@ class FeishuClient:
         try:
             await self.ensure_access_token()
             
-            url = f"{self.base_url}/bitable/v1/apps/{self.table_token}/tables/tblDefault"
-            
             headers = {
                 "Authorization": f"Bearer {self.access_token}"
             }
+            
+            # 直接使用已知的表格ID
+            url = f"{self.base_url}/bitable/v1/apps/{self.table_token}/tables/tblsXDf7QkK9jLzI"
             
             response = await self.client.get(url, headers=headers)
             response.raise_for_status()

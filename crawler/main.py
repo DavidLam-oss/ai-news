@@ -17,7 +17,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
 from crawl4ai import AsyncWebCrawler
-from crawl4ai.extraction_strategy import LLMExtractionStrategy
+from crawl4ai.extraction_strategy import LLMExtractionStrategy, LLMConfig
 from loguru import logger
 import schedule
 import time
@@ -26,7 +26,6 @@ from dotenv import load_dotenv
 from config.settings import Settings
 from crawler.news_sources import NewsSources
 from crawler.content_processor import ContentProcessor
-from api.server import app
 import uvicorn
 
 # 加载环境变量
@@ -58,7 +57,7 @@ class AINewsCrawler:
                 browser_type="chromium",
                 user_agent=self.settings.USER_AGENT
             )
-            await self.crawler.astart()
+            await self.crawler.start()
             logger.info("爬虫引擎初始化成功")
         except Exception as e:
             logger.error(f"爬虫引擎初始化失败: {e}")
@@ -68,64 +67,39 @@ class AINewsCrawler:
         """爬取所有新闻源"""
         all_articles = []
         
-        for source in self.news_sources.get_sources():
+        # 使用简化的爬取策略，避免LLM提取的复杂性
+        for source in self.news_sources.get_sources()[:3]:  # 先测试前3个源
             try:
                 logger.info(f"开始爬取: {source['name']}")
                 
-                # 使用LLM提取策略
-                extraction_strategy = LLMExtractionStrategy(
-                    provider="openai",
-                    api_token=self.settings.OPENAI_API_KEY,
-                    instruction=f"""
-                    请从以下网页内容中提取AI科技相关的新闻文章。
-                    每篇文章包含：标题、摘要、发布时间、链接、内容。
-                    只返回JSON格式的数据，不要包含其他内容。
-                    """,
-                    schema={
-                        "type": "object",
-                        "properties": {
-                            "articles": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "title": {"type": "string"},
-                                        "summary": {"type": "string"},
-                                        "publish_time": {"type": "string"},
-                                        "url": {"type": "string"},
-                                        "content": {"type": "string"}
-                                    }
-                                }
-                            }
-                        }
-                    }
-                )
-                
-                # 执行爬取
+                # 执行简单爬取
                 result = await self.crawler.arun(
                     url=source['url'],
-                    extraction_strategy=extraction_strategy,
                     wait_for="networkidle",
-                    delay_before_return_html=2
+                    delay_before_return_html=3,
+                    js_code="""
+                    // 等待页面加载完成
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    
+                    // 尝试滚动页面以触发懒加载
+                    window.scrollTo(0, document.body.scrollHeight);
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    window.scrollTo(0, 0);
+                    """
                 )
                 
-                if result.success and result.extracted_content:
-                    try:
-                        articles_data = json.loads(result.extracted_content)
-                        articles = articles_data.get('articles', [])
-                        
-                        # 添加来源信息
-                        for article in articles:
-                            article['source'] = source['name']
-                            article['source_url'] = source['url']
-                            article['crawl_time'] = datetime.now().isoformat()
-                        
-                        all_articles.extend(articles)
-                        logger.info(f"从 {source['name']} 获取到 {len(articles)} 篇文章")
-                        
-                    except json.JSONDecodeError as e:
-                        logger.error(f"解析 {source['name']} 的JSON数据失败: {e}")
-                        continue
+                if result.success:
+                    # 使用我们成功的文章提取逻辑
+                    from improved_crawler_test import extract_articles_improved
+                    articles = extract_articles_improved(result.html, source['name'], source['url'])
+                    
+                    # 添加来源信息
+                    for article in articles:
+                        article['source_url'] = source['url']
+                        article['crawl_time'] = datetime.now().isoformat()
+                    
+                    all_articles.extend(articles)
+                    logger.info(f"从 {source['name']} 获取到 {len(articles)} 篇文章")
                 else:
                     logger.warning(f"爬取 {source['name']} 失败")
                     
@@ -188,11 +162,13 @@ class AINewsCrawler:
             
             client = FeishuClient()
             
-            # 准备数据
+            # 准备数据 - 使用正确的字段名称和日期格式
+            from datetime import datetime
+            current_date = datetime.now()
+            
             record_data = {
-                '日期': report['date'],
+                '日期': int(current_date.timestamp() * 1000),  # 使用时间戳格式
                 '早报原始内容': json.dumps(report, ensure_ascii=False, indent=2),
-                'AI处理后内容': report['summary'],
                 '图片提示词1': report['image_prompts'][0] if len(report['image_prompts']) > 0 else '',
                 '图片提示词2': report['image_prompts'][1] if len(report['image_prompts']) > 1 else '',
                 '图片提示词3': report['image_prompts'][2] if len(report['image_prompts']) > 2 else ''
@@ -260,7 +236,7 @@ class AINewsCrawler:
     async def cleanup(self):
         """清理资源"""
         if self.crawler:
-            await self.crawler.aclose()
+            await self.crawler.close()
             logger.info("爬虫引擎已关闭")
 
 def run_scheduler():

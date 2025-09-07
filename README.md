@@ -49,10 +49,69 @@ npm install
 
 ### 3. 配置环境变量
 
+#### 方法一：使用配置脚本（推荐）
+
 ```bash
-cp .env.example .env
-# 编辑.env文件，填入相关配置
+# 运行飞书配置脚本
+python3 setup_feishu_config.py
 ```
+
+#### 方法二：手动配置
+
+```bash
+# 复制配置文件模板
+cp config.env.example .env
+
+# 编辑.env文件，填入相关配置
+# 飞书配置示例：
+# FEISHU_APP_ID=cli_a8366b7ef13a100c
+# FEISHU_APP_SECRET=5nkWuj9xfU5bjg0qEJBcKhmX1H1ptjvr
+# FEISHU_BASE_URL=https://open.feishu.cn/open-apis
+# FEISHU_TABLE_TOKEN=F5I2bdNZxawzTqsRBVbcJWEMn9H
+```
+
+#### 飞书配置说明
+
+1. **获取飞书应用凭证**：
+   - 登录[飞书开放平台](https://open.feishu.cn/)
+   - 创建企业自建应用
+   - 在"凭证与基础信息"中获取 App ID 和 App Secret
+
+2. **配置多维表格**：
+   - 创建多维表格，包含以下字段：
+     - 日期 (日期类型)
+     - 早报原始内容 (多行文本)
+     - AI处理后内容 (多行文本)
+     - 图片提示词1 (单行文本)
+     - 图片提示词2 (单行文本)
+     - 图片提示词3 (单行文本)
+     - 生成图片 (附件)
+   - 获取表格token并配置到 `FEISHU_TABLE_TOKEN`
+
+3. **配置应用权限**：
+   ```bash
+   # 运行权限申请工具
+   python3 request_feishu_permissions.py
+   ```
+   
+   或者手动申请权限：
+   - 登录[飞书开放平台](https://open.feishu.cn/)
+   - 进入应用管理后台
+   - 添加以下必需权限：
+     - `bitable:app:readonly` - 多维表格应用只读权限
+     - `bitable:app` - 多维表格应用权限
+     - `base:app:read` - 基础应用读取权限
+     - `base:table:read` - 基础表格读取权限
+     - `base:record:retrieve` - 基础记录检索权限
+     - `base:record:create` - 基础记录创建权限
+     - `base:record:update` - 基础记录更新权限
+   - 创建新版本并发布
+   - 等待管理员审核通过
+
+4. **测试配置**：
+   ```bash
+   python3 test_feishu_config.py
+   ```
 
 ### 4. 启动服务
 
@@ -144,15 +203,39 @@ pm2 start ecosystem.config.js
 git clone <your-repo-url>
 cd ai-news
 
-# 2. 运行演示
-python3 simple_demo.py
+# 2. 激活虚拟环境
+source venv/bin/activate
 
-# 3. 部署系统
+# 3. 运行完整工作流程演示
+python3 demo_full_workflow.py
+
+# 4. 运行简化爬虫测试
+python3 simple_crawler_test.py
+
+# 5. 测试飞书连接
+python3 test_feishu_config.py
+
+# 6. 部署系统
 ./deploy.sh
 
-# 4. 启动服务
+# 7. 启动服务
 ./start.sh
 ```
+
+## 🎉 系统测试状态
+
+### ✅ 已验证功能
+- **爬虫引擎**: Crawl4AI 0.7.4 正常工作
+- **AI内容处理**: DeepSeek API 集成正常
+- **飞书API连接**: 访问令牌获取成功
+- **数据格式转换**: 爬虫数据到飞书格式转换正常
+
+### ⚠️ 需要配置
+- **飞书多维表格**: 需要正确的表格token
+- **应用权限**: 需要配置相关权限
+
+### 📊 测试结果
+详细测试结果请查看: [TEST_RESULTS.md](./TEST_RESULTS.md)
 
 ## 更新日志
 

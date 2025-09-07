@@ -1,0 +1,361 @@
+2025-09-07 07:34:41.830 | ERROR    | crawler.main:init_crawler:63 - 爬虫引擎初始化失败: 'AsyncWebCrawler' object has no attribute 'astart'
+2025-09-07 07:34:41.830 | ERROR    | __main__:startup_event:84 - API服务启动失败: 'AsyncWebCrawler' object has no attribute 'astart'
+2025-09-07 07:35:00.475 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 07:35:00.521 | INFO     | __main__:startup_event:82 - API服务启动成功
+2025-09-07 07:35:23.008 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 36氪
+2025-09-07 07:35:23.009 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 36氪 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:35:23.009 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 虎嗅网
+2025-09-07 07:35:23.009 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 虎嗅网 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:35:23.009 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 机器之心
+2025-09-07 07:35:23.010 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 机器之心 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:35:23.010 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: AI科技大本营
+2025-09-07 07:35:23.010 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 AI科技大本营 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:35:23.010 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 量子位
+2025-09-07 07:35:23.011 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 量子位 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:35:23.011 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 新智元
+2025-09-07 07:35:23.011 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 新智元 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:35:23.011 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: AI前线
+2025-09-07 07:35:23.012 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 AI前线 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:35:23.012 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 雷锋网
+2025-09-07 07:35:23.013 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 雷锋网 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:35:23.013 | INFO     | crawler.main:crawl_news_sources:143 - 总共获取到 0 篇去重后的文章
+2025-09-07 07:38:31.024 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 07:38:31.062 | INFO     | crawler.content_processor:__init__:29 - 使用DeepSeek API进行内容处理
+2025-09-07 07:38:31.062 | INFO     | __main__:startup_event:82 - API服务启动成功
+2025-09-07 07:38:31.186 | INFO     | crawler.main:cleanup:263 - 爬虫引擎已关闭
+2025-09-07 07:38:31.187 | INFO     | __main__:shutdown_event:94 - API服务已关闭
+2025-09-07 07:38:45.760 | ERROR    | crawler.content_processor:_generate_summary:91 - 生成早报摘要失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:38:45.773 | ERROR    | crawler.content_processor:_analyze_trends:117 - 分析发展趋势失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:38:45.791 | ERROR    | crawler.content_processor:_generate_image_prompts:148 - 生成图片提示词失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:44:27.184 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 07:44:27.220 | INFO     | crawler.content_processor:__init__:29 - 使用火山方舟DeepSeek API进行内容处理
+2025-09-07 07:44:27.220 | INFO     | __main__:startup_event:82 - API服务启动成功
+2025-09-07 07:44:27.348 | INFO     | crawler.main:cleanup:263 - 爬虫引擎已关闭
+2025-09-07 07:44:27.348 | INFO     | __main__:shutdown_event:94 - API服务已关闭
+2025-09-07 07:44:53.395 | ERROR    | crawler.content_processor:_generate_image_prompts:148 - 生成图片提示词失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:44:53.406 | ERROR    | crawler.content_processor:_analyze_trends:117 - 分析发展趋势失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:44:53.421 | ERROR    | crawler.content_processor:_generate_summary:91 - 生成早报摘要失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:45:28.663 | ERROR    | crawler.content_processor:_generate_summary:91 - 生成早报摘要失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:45:28.695 | ERROR    | crawler.content_processor:_analyze_trends:117 - 分析发展趋势失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:45:28.720 | ERROR    | crawler.content_processor:_generate_image_prompts:148 - 生成图片提示词失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:46:24.276 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 07:46:24.313 | INFO     | crawler.content_processor:__init__:29 - 使用火山方舟DeepSeek API进行内容处理
+2025-09-07 07:46:24.314 | INFO     | __main__:startup_event:82 - API服务启动成功
+2025-09-07 07:46:24.436 | INFO     | crawler.main:cleanup:263 - 爬虫引擎已关闭
+2025-09-07 07:46:24.436 | INFO     | __main__:shutdown_event:94 - API服务已关闭
+2025-09-07 07:46:41.586 | ERROR    | crawler.content_processor:_generate_image_prompts:148 - 生成图片提示词失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:46:41.593 | ERROR    | crawler.content_processor:_analyze_trends:117 - 分析发展趋势失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:46:41.595 | ERROR    | crawler.content_processor:_generate_summary:91 - 生成早报摘要失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:47:08.332 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 07:47:08.333 | INFO     | __main__:startup_event:83 - API服务启动成功
+2025-09-07 07:47:08.478 | INFO     | crawler.main:cleanup:263 - 爬虫引擎已关闭
+2025-09-07 07:47:08.478 | INFO     | __main__:shutdown_event:95 - API服务已关闭
+2025-09-07 07:47:25.154 | ERROR    | crawler.content_processor:_analyze_trends:117 - 分析发展趋势失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:47:25.163 | ERROR    | crawler.content_processor:_generate_summary:91 - 生成早报摘要失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:47:25.168 | ERROR    | crawler.content_processor:_generate_image_prompts:148 - 生成图片提示词失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:47:54.158 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 07:47:54.158 | INFO     | __main__:startup_event:83 - API服务启动成功
+2025-09-07 07:47:54.293 | INFO     | crawler.main:cleanup:263 - 爬虫引擎已关闭
+2025-09-07 07:47:54.293 | INFO     | __main__:shutdown_event:95 - API服务已关闭
+2025-09-07 07:48:02.461 | ERROR    | crawler.content_processor:_generate_summary:91 - 生成早报摘要失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:48:02.465 | ERROR    | crawler.content_processor:_generate_image_prompts:148 - 生成图片提示词失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:48:02.469 | ERROR    | crawler.content_processor:_analyze_trends:117 - 分析发展趋势失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:50:23.530 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 07:50:23.530 | INFO     | __main__:startup_event:83 - API服务启动成功
+2025-09-07 07:50:23.660 | INFO     | crawler.main:cleanup:263 - 爬虫引擎已关闭
+2025-09-07 07:50:23.660 | INFO     | __main__:shutdown_event:95 - API服务已关闭
+2025-09-07 07:50:59.237 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 07:51:06.473 | INFO     | crawler.content_processor:__init__:29 - 使用火山方舟DeepSeek API进行内容处理
+2025-09-07 07:51:10.517 | INFO     | crawler.content_processor:_generate_image_prompts:167 - 生成了 3 个图片提示词
+2025-09-07 07:51:10.518 | INFO     | crawler.content_processor:_generate_summary:104 - 早报摘要生成成功
+2025-09-07 07:51:15.269 | INFO     | crawler.content_processor:_analyze_trends:133 - 分析出 15 个发展趋势
+2025-09-07 07:51:15.521 | INFO     | crawler.main:cleanup:263 - 爬虫引擎已关闭
+2025-09-07 07:51:29.086 | ERROR    | crawler.content_processor:_analyze_trends:117 - 分析发展趋势失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:51:29.097 | ERROR    | crawler.content_processor:_generate_image_prompts:148 - 生成图片提示词失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:51:29.149 | ERROR    | crawler.content_processor:_generate_summary:91 - 生成早报摘要失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope*******_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-09-07 07:51:39.486 | INFO     | crawler.main:run_daily_crawl:217 - 开始执行每日爬取任务
+2025-09-07 07:51:39.487 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 36氪
+2025-09-07 07:51:39.495 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 36氪 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:51:39.495 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 虎嗅网
+2025-09-07 07:51:39.496 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 虎嗅网 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:51:39.496 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 机器之心
+2025-09-07 07:51:39.497 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 机器之心 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:51:39.497 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: AI科技大本营
+2025-09-07 07:51:39.497 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 AI科技大本营 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:51:39.497 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 量子位
+2025-09-07 07:51:39.498 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 量子位 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:51:39.498 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 新智元
+2025-09-07 07:51:39.499 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 新智元 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:51:39.499 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: AI前线
+2025-09-07 07:51:39.499 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 AI前线 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:51:39.499 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 雷锋网
+2025-09-07 07:51:39.500 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 雷锋网 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 07:51:39.500 | INFO     | crawler.main:crawl_news_sources:143 - 总共获取到 0 篇去重后的文章
+2025-09-07 07:51:39.500 | WARNING  | crawler.main:run_daily_crawl:223 - 未获取到任何文章，跳过早报生成
+2025-09-07 07:55:40.004 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 07:56:23.432 | INFO     | crawler.content_processor:__init__:29 - 使用火山方舟DeepSeek API进行内容处理
+2025-09-07 07:56:26.772 | INFO     | crawler.content_processor:_generate_summary:104 - 早报摘要生成成功
+2025-09-07 07:56:27.674 | INFO     | crawler.content_processor:_generate_image_prompts:167 - 生成了 3 个图片提示词
+2025-09-07 07:56:32.923 | INFO     | crawler.content_processor:_analyze_trends:133 - 分析出 12 个发展趋势
+2025-09-07 07:56:33.191 | INFO     | crawler.main:cleanup:263 - 爬虫引擎已关闭
+2025-09-07 08:10:11.929 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:12:02.264 | INFO     | crawler.content_processor:__init__:29 - 使用火山方舟DeepSeek API进行内容处理
+2025-09-07 08:12:06.535 | INFO     | crawler.content_processor:_generate_image_prompts:167 - 生成了 3 个图片提示词
+2025-09-07 08:12:07.610 | INFO     | crawler.content_processor:_generate_summary:104 - 早报摘要生成成功
+2025-09-07 08:12:09.686 | INFO     | crawler.content_processor:_analyze_trends:133 - 分析出 13 个发展趋势
+2025-09-07 08:12:09.874 | INFO     | crawler.main:cleanup:263 - 爬虫引擎已关闭
+2025-09-07 08:13:35.244 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:14:01.125 | INFO     | crawler.content_processor:__init__:29 - 使用火山方舟DeepSeek API进行内容处理
+2025-09-07 08:14:06.026 | INFO     | crawler.content_processor:_generate_image_prompts:167 - 生成了 3 个图片提示词
+2025-09-07 08:14:06.216 | INFO     | crawler.content_processor:_generate_summary:104 - 早报摘要生成成功
+2025-09-07 08:14:10.301 | INFO     | crawler.content_processor:_analyze_trends:133 - 分析出 11 个发展趋势
+2025-09-07 08:14:10.454 | INFO     | crawler.main:cleanup:263 - 爬虫引擎已关闭
+2025-09-07 08:19:15.555 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:19:15.556 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 08:19:35.304 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 36氪
+2025-09-07 08:19:35.305 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 36氪 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 08:19:35.305 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 虎嗅网
+2025-09-07 08:19:35.306 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 虎嗅网 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 08:19:35.306 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 机器之心
+2025-09-07 08:19:35.306 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 机器之心 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 08:19:35.306 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: AI科技大本营
+2025-09-07 08:19:35.307 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 AI科技大本营 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 08:19:35.307 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 量子位
+2025-09-07 08:19:35.307 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 量子位 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 08:19:35.307 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 新智元
+2025-09-07 08:19:35.308 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 新智元 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 08:19:35.308 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: AI前线
+2025-09-07 08:19:35.308 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 AI前线 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 08:19:35.308 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 雷锋网
+2025-09-07 08:19:35.309 | ERROR    | crawler.main:crawl_news_sources:132 - 爬取 雷锋网 时发生错误: Setting 'provider' is deprecated. Instead, use llm_config=LLMConfig(provider="...")
+2025-09-07 08:19:35.309 | INFO     | crawler.main:crawl_news_sources:143 - 总共获取到 0 篇去重后的文章
+2025-09-07 08:20:17.705 | INFO     | crawler.main:cleanup:263 - 爬虫引擎已关闭
+2025-09-07 08:20:17.706 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 08:20:19.907 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:20:19.907 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 08:21:46.757 | INFO     | crawler.main:cleanup:267 - 爬虫引擎已关闭
+2025-09-07 08:21:46.757 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 08:21:49.025 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:21:49.026 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 08:21:57.625 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 36氪
+2025-09-07 08:21:57.625 | ERROR    | crawler.main:crawl_news_sources:136 - 爬取 36氪 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:21:57.625 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 虎嗅网
+2025-09-07 08:21:57.625 | ERROR    | crawler.main:crawl_news_sources:136 - 爬取 虎嗅网 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:21:57.625 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 机器之心
+2025-09-07 08:21:57.625 | ERROR    | crawler.main:crawl_news_sources:136 - 爬取 机器之心 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:21:57.625 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: AI科技大本营
+2025-09-07 08:21:57.625 | ERROR    | crawler.main:crawl_news_sources:136 - 爬取 AI科技大本营 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:21:57.625 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 量子位
+2025-09-07 08:21:57.625 | ERROR    | crawler.main:crawl_news_sources:136 - 爬取 量子位 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:21:57.625 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 新智元
+2025-09-07 08:21:57.625 | ERROR    | crawler.main:crawl_news_sources:136 - 爬取 新智元 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:21:57.625 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: AI前线
+2025-09-07 08:21:57.625 | ERROR    | crawler.main:crawl_news_sources:136 - 爬取 AI前线 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:21:57.625 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 雷锋网
+2025-09-07 08:21:57.625 | ERROR    | crawler.main:crawl_news_sources:136 - 爬取 雷锋网 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:21:57.626 | INFO     | crawler.main:crawl_news_sources:147 - 总共获取到 0 篇去重后的文章
+2025-09-07 08:22:12.216 | INFO     | crawler.main:cleanup:267 - 爬虫引擎已关闭
+2025-09-07 08:22:12.217 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 08:22:13.772 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:22:13.772 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 08:22:14.791 | INFO     | crawler.main:cleanup:267 - 爬虫引擎已关闭
+2025-09-07 08:22:14.791 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 08:22:15.945 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:22:15.945 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 08:22:18.800 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 36氪
+2025-09-07 08:22:18.800 | ERROR    | crawler.main:crawl_news_sources:135 - 爬取 36氪 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:22:18.801 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 虎嗅网
+2025-09-07 08:22:18.801 | ERROR    | crawler.main:crawl_news_sources:135 - 爬取 虎嗅网 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:22:18.801 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 机器之心
+2025-09-07 08:22:18.801 | ERROR    | crawler.main:crawl_news_sources:135 - 爬取 机器之心 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:22:18.801 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: AI科技大本营
+2025-09-07 08:22:18.801 | ERROR    | crawler.main:crawl_news_sources:135 - 爬取 AI科技大本营 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:22:18.801 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 量子位
+2025-09-07 08:22:18.801 | ERROR    | crawler.main:crawl_news_sources:135 - 爬取 量子位 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:22:18.801 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 新智元
+2025-09-07 08:22:18.801 | ERROR    | crawler.main:crawl_news_sources:135 - 爬取 新智元 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:22:18.801 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: AI前线
+2025-09-07 08:22:18.801 | ERROR    | crawler.main:crawl_news_sources:135 - 爬取 AI前线 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:22:18.801 | INFO     | crawler.main:crawl_news_sources:72 - 开始爬取: 雷锋网
+2025-09-07 08:22:18.801 | ERROR    | crawler.main:crawl_news_sources:135 - 爬取 雷锋网 时发生错误: 'ForwardRef' object is not callable
+2025-09-07 08:22:18.801 | INFO     | crawler.main:crawl_news_sources:146 - 总共获取到 0 篇去重后的文章
+2025-09-07 08:22:55.929 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:23:02.992 | INFO     | crawler.content_processor:__init__:29 - 使用火山方舟DeepSeek API进行内容处理
+2025-09-07 08:23:07.168 | INFO     | crawler.content_processor:_generate_image_prompts:167 - 生成了 3 个图片提示词
+2025-09-07 08:23:09.088 | INFO     | crawler.content_processor:_generate_summary:104 - 早报摘要生成成功
+2025-09-07 08:23:12.424 | INFO     | crawler.content_processor:_analyze_trends:133 - 分析出 13 个发展趋势
+2025-09-07 08:23:12.572 | INFO     | crawler.main:cleanup:266 - 爬虫引擎已关闭
+2025-09-07 08:23:16.988 | INFO     | crawler.main:cleanup:266 - 爬虫引擎已关闭
+2025-09-07 08:23:16.988 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 08:23:18.552 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:23:18.552 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 08:24:40.818 | INFO     | crawler.main:cleanup:266 - 爬虫引擎已关闭
+2025-09-07 08:24:40.819 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 08:24:43.211 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:24:43.211 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 08:24:44.287 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 36氪
+2025-09-07 08:24:50.960 | INFO     | crawler.main:crawl_news_sources:102 - 从 36氪 获取到 3 篇文章
+2025-09-07 08:24:50.960 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 虎嗅网
+2025-09-07 08:25:00.969 | INFO     | crawler.main:crawl_news_sources:102 - 从 虎嗅网 获取到 5 篇文章
+2025-09-07 08:25:00.970 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 机器之心
+2025-09-07 08:25:31.243 | WARNING  | crawler.main:crawl_news_sources:104 - 爬取 机器之心 失败
+2025-09-07 08:25:31.244 | INFO     | crawler.main:crawl_news_sources:118 - 总共获取到 3 篇去重后的文章
+2025-09-07 08:25:33.395 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 08:25:33.395 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 08:25:35.452 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:25:35.453 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 08:26:09.136 | INFO     | api.server:process_content:157 - content_processor: <crawler.content_processor.ContentProcessor object at 0x118dcee40>
+2025-09-07 08:26:09.137 | INFO     | api.server:process_content:158 - content_processor type: <class 'crawler.content_processor.ContentProcessor'>
+2025-09-07 08:26:13.309 | INFO     | crawler.content_processor:_generate_image_prompts:167 - 生成了 3 个图片提示词
+2025-09-07 08:26:14.535 | INFO     | crawler.content_processor:_generate_summary:104 - 早报摘要生成成功
+2025-09-07 08:26:18.938 | INFO     | crawler.content_processor:_analyze_trends:133 - 分析出 11 个发展趋势
+2025-09-07 08:40:47.408 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:40:47.409 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 36氪
+2025-09-07 08:40:54.794 | INFO     | crawler.main:crawl_news_sources:102 - 从 36氪 获取到 3 篇文章
+2025-09-07 08:40:54.794 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 虎嗅网
+2025-09-07 08:40:58.529 | INFO     | crawler.main:crawl_news_sources:102 - 从 虎嗅网 获取到 5 篇文章
+2025-09-07 08:40:58.529 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 机器之心
+2025-09-07 08:41:28.789 | WARNING  | crawler.main:crawl_news_sources:104 - 爬取 机器之心 失败
+2025-09-07 08:41:28.790 | INFO     | crawler.main:crawl_news_sources:118 - 总共获取到 3 篇去重后的文章
+2025-09-07 08:41:28.813 | INFO     | crawler.content_processor:__init__:29 - 使用火山方舟DeepSeek API进行内容处理
+2025-09-07 08:41:32.375 | INFO     | crawler.content_processor:_generate_summary:104 - 早报摘要生成成功
+2025-09-07 08:41:32.851 | INFO     | crawler.content_processor:_generate_image_prompts:167 - 生成了 3 个图片提示词
+2025-09-07 08:41:35.503 | INFO     | crawler.content_processor:_analyze_trends:133 - 分析出 10 个发展趋势
+2025-09-07 08:41:35.522 | ERROR    | crawler.main:save_to_feishu:186 - 保存到飞书多维表格时发生错误: 'date'
+2025-09-07 08:41:36.957 | ERROR    | wechat.client:send_to_group:94 - 发送到微信群失败: invalid webhook url, hint: [1757205697120931715469360], from ip: 23.172.200.5, more info at https://open.work.weixin.qq.com/devtool/query?e=93000
+2025-09-07 08:41:37.981 | ERROR    | wechat.client:publish_moment:131 - 发布朋友圈失败: invalid credential, access_token is invalid or not latest, could get access_token by getStableAccessToken, more details at https://mmbizurl.cn/s/JtxxFh33r rid: 68bcd4c2-0d1260da-733a226e
+2025-09-07 08:41:37.981 | INFO     | crawler.main:send_to_wechat:229 - 早报已发送到微信
+2025-09-07 08:41:38.169 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 08:41:40.067 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 08:41:40.067 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 08:41:42.195 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:41:42.195 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 08:43:28.603 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:43:28.604 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 36氪
+2025-09-07 08:43:35.070 | INFO     | crawler.main:crawl_news_sources:102 - 从 36氪 获取到 3 篇文章
+2025-09-07 08:43:35.070 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 虎嗅网
+2025-09-07 08:44:35.329 | WARNING  | crawler.main:crawl_news_sources:104 - 爬取 虎嗅网 失败
+2025-09-07 08:44:35.329 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 机器之心
+2025-09-07 08:45:05.611 | WARNING  | crawler.main:crawl_news_sources:104 - 爬取 机器之心 失败
+2025-09-07 08:45:05.611 | INFO     | crawler.main:crawl_news_sources:118 - 总共获取到 3 篇去重后的文章
+2025-09-07 08:45:05.635 | INFO     | crawler.content_processor:__init__:29 - 使用火山方舟DeepSeek API进行内容处理
+2025-09-07 08:45:09.076 | INFO     | crawler.content_processor:_generate_image_prompts:167 - 生成了 3 个图片提示词
+2025-09-07 08:45:09.643 | INFO     | crawler.content_processor:_generate_summary:104 - 早报摘要生成成功
+2025-09-07 08:45:12.920 | INFO     | crawler.content_processor:_analyze_trends:133 - 分析出 15 个发展趋势
+2025-09-07 08:45:12.939 | ERROR    | crawler.main:save_to_feishu:186 - 保存到飞书多维表格时发生错误: 'date'
+2025-09-07 08:45:14.356 | ERROR    | wechat.client:send_to_group:94 - 发送到微信群失败: invalid webhook url, hint: [1757205914421712615795495], from ip: 23.172.200.5, more info at https://open.work.weixin.qq.com/devtool/query?e=93000
+2025-09-07 08:45:15.275 | ERROR    | wechat.client:publish_moment:131 - 发布朋友圈失败: invalid credential, access_token is invalid or not latest, could get access_token by getStableAccessToken, more details at https://mmbizurl.cn/s/JtxxFh33r rid: 68bcd59b-0a83154f-7ce38bd2
+2025-09-07 08:45:15.276 | INFO     | crawler.main:send_to_wechat:229 - 早报已发送到微信
+2025-09-07 08:45:15.446 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 08:45:18.015 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 08:45:18.015 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 08:45:20.045 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 08:45:20.045 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 09:00:36.029 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 09:00:36.029 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 09:00:38.404 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 09:00:38.404 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 09:00:55.922 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 09:00:55.923 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 09:00:57.389 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 09:00:57.390 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 09:01:07.053 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 09:01:07.053 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 09:01:08.446 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 09:01:08.447 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 09:01:50.233 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 09:01:50.233 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 09:01:52.554 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 09:01:52.554 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 10:51:06.086 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 10:51:06.087 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 10:51:09.376 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 10:51:09.376 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 10:57:43.641 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 10:57:43.642 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 10:57:45.890 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 10:57:45.891 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 11:01:20.514 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:01:20.514 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 11:01:22.978 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:01:22.979 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 11:03:38.700 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:03:38.700 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 11:03:41.124 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:03:41.124 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 11:05:41.074 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:05:41.075 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 11:05:43.329 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:05:43.329 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 11:07:09.242 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:07:09.243 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 11:07:11.666 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:07:11.666 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 11:10:49.213 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:10:49.213 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 11:10:51.627 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:10:51.628 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 11:21:33.155 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:21:33.155 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 11:21:35.494 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:21:35.494 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 11:21:40.077 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:21:40.077 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 11:21:41.486 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:21:41.486 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 11:23:05.154 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:23:05.154 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 11:23:06.788 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:23:06.788 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 11:23:24.201 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:23:24.201 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 11:23:25.572 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:23:25.573 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 11:23:44.906 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:23:44.906 | INFO     | api.server:shutdown_event:95 - API服务已关闭
+2025-09-07 11:23:46.456 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:23:46.456 | INFO     | api.server:startup_event:83 - API服务启动成功
+2025-09-07 11:26:31.587 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:26:34.017 | INFO     | crawler.content_processor:__init__:29 - 使用火山方舟DeepSeek API进行内容处理
+2025-09-07 11:26:37.248 | INFO     | crawler.content_processor:_generate_image_prompts:167 - 生成了 3 个图片提示词
+2025-09-07 11:26:38.780 | INFO     | crawler.content_processor:_generate_summary:104 - 早报摘要生成成功
+2025-09-07 11:26:45.212 | INFO     | crawler.content_processor:_analyze_trends:133 - 分析出 11 个发展趋势
+2025-09-07 11:26:45.372 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:27:47.146 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:27:47.146 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 36氪
+2025-09-07 11:27:48.745 | INFO     | crawler.main:crawl_news_sources:102 - 从 36氪 获取到 0 篇文章
+2025-09-07 11:27:48.746 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 虎嗅网
+2025-09-07 11:27:52.033 | INFO     | crawler.main:crawl_news_sources:102 - 从 虎嗅网 获取到 6 篇文章
+2025-09-07 11:27:52.033 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 机器之心
+2025-09-07 11:27:56.122 | INFO     | crawler.main:crawl_news_sources:102 - 从 机器之心 获取到 0 篇文章
+2025-09-07 11:27:56.123 | INFO     | crawler.main:crawl_news_sources:118 - 总共获取到 1 篇去重后的文章
+2025-09-07 11:27:59.352 | INFO     | crawler.content_processor:_generate_summary:104 - 早报摘要生成成功
+2025-09-07 11:28:00.043 | INFO     | crawler.content_processor:_generate_image_prompts:167 - 生成了 3 个图片提示词
+2025-09-07 11:28:04.999 | INFO     | crawler.content_processor:_analyze_trends:133 - 分析出 12 个发展趋势
+2025-09-07 11:28:05.001 | INFO     | crawler.main:generate_daily_report:151 - 每日早报生成成功
+2025-09-07 11:28:05.309 | INFO     | feishu.client:get_access_token:50 - 飞书访问令牌获取成功
+2025-09-07 11:28:05.510 | ERROR    | feishu.client:create_record:97 - 创建飞书记录时发生错误: Client error '400 Bad Request' for url 'https://open.feishu.cn/open-apis/bitable/v1/apps/DHzwwDvX6i3tCmk0rl8cpDsonSf/tables/tblsXDf7QkK9jLzI/records'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2025-09-07 11:28:05.510 | ERROR    | crawler.main:save_to_feishu:181 - 保存到飞书多维表格失败
+2025-09-07 11:28:05.671 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:28:28.859 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:28:30.812 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:28:38.489 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:28:40.233 | INFO     | crawler.main:cleanup:238 - 爬虫引擎已关闭
+2025-09-07 11:38:52.312 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:38:52.312 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 36氪
+2025-09-07 11:38:54.597 | INFO     | crawler.main:crawl_news_sources:102 - 从 36氪 获取到 0 篇文章
+2025-09-07 11:38:54.597 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 虎嗅网
+2025-09-07 11:38:57.321 | INFO     | crawler.main:crawl_news_sources:102 - 从 虎嗅网 获取到 5 篇文章
+2025-09-07 11:38:57.321 | INFO     | crawler.main:crawl_news_sources:73 - 开始爬取: 机器之心
+2025-09-07 11:39:03.067 | INFO     | crawler.main:crawl_news_sources:102 - 从 机器之心 获取到 0 篇文章
+2025-09-07 11:39:03.067 | INFO     | crawler.main:crawl_news_sources:118 - 总共获取到 0 篇去重后的文章
+2025-09-07 11:39:03.187 | INFO     | crawler.main:cleanup:240 - 爬虫引擎已关闭
+2025-09-07 11:39:10.924 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:39:12.892 | INFO     | crawler.content_processor:__init__:29 - 使用火山方舟DeepSeek API进行内容处理
+2025-09-07 11:39:15.698 | INFO     | crawler.content_processor:_generate_image_prompts:167 - 生成了 3 个图片提示词
+2025-09-07 11:39:16.372 | INFO     | crawler.content_processor:_generate_summary:104 - 早报摘要生成成功
+2025-09-07 11:39:19.521 | INFO     | crawler.content_processor:_analyze_trends:133 - 分析出 10 个发展趋势
+2025-09-07 11:39:19.657 | INFO     | crawler.main:cleanup:240 - 爬虫引擎已关闭
+2025-09-07 11:39:48.109 | INFO     | crawler.main:init_crawler:61 - 爬虫引擎初始化成功
+2025-09-07 11:39:50.053 | INFO     | crawler.main:cleanup:240 - 爬虫引擎已关闭

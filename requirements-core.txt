@@ -1,0 +1,24 @@
+# 核心依赖 - 简化版本
+crawl4ai==0.7.4
+playwright>=1.40.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+aiohttp>=3.9.0
+
+# AI处理
+openai>=1.3.0
+anthropic>=0.7.0
+
+# API服务
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.5.0
+
+# 基础工具
+python-dotenv>=1.0.0
+loguru>=0.7.0
+schedule>=1.2.0
+
+# 数据处理（简化）
+pandas>=2.2.0
+numpy>=1.26.0
