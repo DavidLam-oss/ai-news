@@ -58,7 +58,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str = Field(default="sqlite:///./ai_news.db", env="DATABASE_URL")
     
     # 功能开关
-    ENABLE_WECHAT: bool = Field(default=True, env="ENABLE_WECHAT")
+    ENABLE_WECHAT: bool = Field(default=False, env="ENABLE_WECHAT")
     ENABLE_IMAGE_GENERATION: bool = Field(default=True, env="ENABLE_IMAGE_GENERATION")
     
     class Config:

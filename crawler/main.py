@@ -206,83 +206,14 @@ class AINewsCrawler:
             # 保存到飞书
             await self.save_to_feishu(report)
             
-            # 发送到微信（如果需要）
-            if self.settings.ENABLE_WECHAT:
-                await self.send_to_wechat(report)
+            # 微信发送功能已移除（风险规避）
             
             logger.info("每日爬取任务完成")
             
         except Exception as e:
             logger.error(f"执行每日爬取任务失败: {e}")
     
-    async def send_to_wechat(self, report: Dict[str, Any]):
-        """发送到微信"""
-        try:
-            # 优先使用iPad协议微信助手
-            if self.settings.IPAD_WEBHOOK_URL:
-                await self.send_to_wechat_ipad(report)
-            else:
-                # 回退到传统微信API
-                await self.send_to_wechat_traditional(report)
-            
-        except Exception as e:
-            logger.error(f"发送到微信失败: {e}")
-    
-    async def send_to_wechat_ipad(self, report: Dict[str, Any]):
-        """使用iPad协议发送到微信"""
-        try:
-            from wechat.ipad_client import IpadWechatClient
-            
-            client = IpadWechatClient()
-            
-            # 连接
-            if not await client.connect():
-                logger.error("iPad微信客户端连接失败")
-                return
-            
-            # 发送到默认群
-            success = await client.send_to_group(report)
-            
-            if success:
-                logger.info("早报已通过iPad协议发送到微信群")
-                
-                # 如果配置了多个目标群，发送到所有群
-                if self.settings.TARGET_GROUPS:
-                    group_names = [name.strip() for name in self.settings.TARGET_GROUPS.split(',')]
-                    results = await client.send_to_multiple_groups(report, group_names)
-                    
-                    success_count = sum(1 for result in results.values() if result)
-                    logger.info(f"早报已发送到 {success_count}/{len(group_names)} 个群")
-                
-                # 发布朋友圈
-                moment_content = f"🤖 AI科技早报 - {report['date']}\n\n{report['summary'][:200]}..."
-                await client.publish_moment(moment_content)
-                
-            else:
-                logger.error("通过iPad协议发送到微信群失败")
-            
-            await client.close()
-            
-        except Exception as e:
-            logger.error(f"iPad协议微信发送失败: {e}")
-    
-    async def send_to_wechat_traditional(self, report: Dict[str, Any]):
-        """使用传统微信API发送"""
-        try:
-            from wechat.client import WechatClient
-            
-            client = WechatClient()
-            
-            # 发送到群聊
-            await client.send_to_group(report)
-            
-            # 发布朋友圈
-            await client.publish_moment(report)
-            
-            logger.info("早报已通过传统API发送到微信")
-            
-        except Exception as e:
-            logger.error(f"传统微信API发送失败: {e}")
+    # 微信发送功能已移除（风险规避）
     
     async def cleanup(self):
         """清理资源"""
