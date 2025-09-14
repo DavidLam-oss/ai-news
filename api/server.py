@@ -19,6 +19,9 @@ from config.settings import settings
 from crawler.main import AINewsCrawler
 from crawler.content_processor import ContentProcessor
 from crawler.news_sources import NewsSources
+from crawler.mac_tips_crawler import MacTipsCrawler
+from crawler.mac_tips_sources import MacTipsSources
+from crawler.mac_tips_processor import MacTipsProcessor
 
 # 创建FastAPI应用
 app = FastAPI(
@@ -40,6 +43,9 @@ app.add_middleware(
 crawler_instance = None
 content_processor = None
 news_sources = None
+mac_tips_crawler = None
+mac_tips_sources = None
+mac_tips_processor = None
 
 # Pydantic模型
 class NewsRequest(BaseModel):
@@ -62,19 +68,36 @@ class FeishuRecordRequest(BaseModel):
     processed_content: str
     image_prompts: List[str]
 
+class MacTipsRequest(BaseModel):
+    """Mac技巧请求模型"""
+    sources: Optional[List[str]] = None
+    categories: Optional[List[str]] = None
+    max_tips: Optional[int] = 20
+
+class MacTipsContentRequest(BaseModel):
+    """Mac技巧内容生成请求模型"""
+    tips: List[Dict[str, Any]]
+    content_type: str = "xiaohongshu"  # xiaohongshu, tip_card, calendar
+
 @app.on_event("startup")
 async def startup_event():
     """应用启动事件"""
     global crawler_instance, content_processor, news_sources
+    global mac_tips_crawler, mac_tips_sources, mac_tips_processor
     
     try:
-        # 初始化组件
+        # 初始化AI早报组件
         crawler_instance = AINewsCrawler()
         await crawler_instance.init_crawler()
         
         # 使用爬虫实例中的内容处理器
         content_processor = crawler_instance.content_processor
         news_sources = NewsSources()
+        
+        # 初始化Mac技巧组件
+        mac_tips_crawler = MacTipsCrawler()
+        mac_tips_sources = MacTipsSources()
+        mac_tips_processor = MacTipsProcessor()
         
         logger.info("API服务启动成功")
     except Exception as e:
@@ -109,7 +132,10 @@ async def health_check():
         "services": {
             "crawler": crawler_instance is not None,
             "content_processor": content_processor is not None,
-            "news_sources": news_sources is not None
+            "news_sources": news_sources is not None,
+            "mac_tips_crawler": mac_tips_crawler is not None,
+            "mac_tips_sources": mac_tips_sources is not None,
+            "mac_tips_processor": mac_tips_processor is not None
         }
     }
 
@@ -286,6 +312,102 @@ async def run_crawl_task(background_tasks: BackgroundTasks):
         logger.error(f"执行爬取任务失败: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+# Mac技巧相关API接口
+@app.get("/api/mac-tips/sources")
+async def get_mac_tips_sources():
+    """获取Mac技巧源列表"""
+    try:
+        if not mac_tips_sources:
+            raise HTTPException(status_code=500, detail="Mac技巧源服务未初始化")
+        
+        sources = mac_tips_sources.get_sources()
+        return {
+            "success": True,
+            "data": sources
+        }
+        
+    except Exception as e:
+        logger.error(f"获取Mac技巧源失败: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/mac-tips/categories")
+async def get_mac_tips_categories():
+    """获取Mac技巧分类"""
+    try:
+        if not mac_tips_sources:
+            raise HTTPException(status_code=500, detail="Mac技巧源服务未初始化")
+        
+        categories = mac_tips_sources.get_categories()
+        return {
+            "success": True,
+            "data": categories
+        }
+        
+    except Exception as e:
+        logger.error(f"获取Mac技巧分类失败: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/mac-tips/crawl")
+async def crawl_mac_tips(request: MacTipsRequest = None):
+    """爬取Mac技巧内容"""
+    try:
+        if not mac_tips_crawler:
+            raise HTTPException(status_code=500, detail="Mac技巧爬虫服务未初始化")
+        
+        # 初始化爬虫
+        await mac_tips_crawler.initialize()
+        
+        # 爬取内容
+        result = await mac_tips_crawler.crawl_mac_tips()
+        
+        return {
+            "success": True,
+            "data": result
+        }
+        
+    except Exception as e:
+        logger.error(f"爬取Mac技巧内容失败: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        if mac_tips_crawler:
+            await mac_tips_crawler.cleanup()
+
+@app.post("/api/mac-tips/process")
+async def process_mac_tips(request: MacTipsContentRequest):
+    """处理Mac技巧内容"""
+    try:
+        if not mac_tips_processor:
+            raise HTTPException(status_code=500, detail="Mac技巧处理器未初始化")
+        
+        # 处理内容
+        result = await mac_tips_processor.process_mac_tips(request.tips)
+        
+        return {
+            "success": True,
+            "data": result
+        }
+        
+    except Exception as e:
+        logger.error(f"处理Mac技巧内容失败: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/mac-tips/templates")
+async def get_mac_tips_templates():
+    """获取Mac技巧内容模板"""
+    try:
+        if not mac_tips_sources:
+            raise HTTPException(status_code=500, detail="Mac技巧源服务未初始化")
+        
+        templates = mac_tips_sources.get_templates()
+        return {
+            "success": True,
+            "data": templates
+        }
+        
+    except Exception as e:
+        logger.error(f"获取Mac技巧模板失败: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/stats")
 async def get_stats():
     """获取系统统计信息"""
@@ -295,6 +417,8 @@ async def get_stats():
             "total_sources": len(news_sources.get_sources()) if news_sources else 0,
             "ai_sources": len(news_sources.get_ai_sources()) if news_sources else 0,
             "tech_sources": len(news_sources.get_tech_sources()) if news_sources else 0,
+            "mac_tips_sources": len(mac_tips_sources.get_sources()) if mac_tips_sources else 0,
+            "mac_tips_categories": len(mac_tips_sources.get_categories()) if mac_tips_sources else 0,
             "last_crawl": datetime.now().isoformat(),
             "system_status": "running"
         }
